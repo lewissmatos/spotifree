@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { SpotifreeService } from '../../sercives/spotifree.service';
 
 @Component({
   selector: 'app-home',
@@ -7,19 +8,20 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-
-  paises: any[] = []
   
-  constructor(private http: HttpClient) {
-    this.http.get<any>('').subscribe(
-      res => {
-        
-      },
-      err => {
+
+  nuevasCanciones: any[]=[]
+
+  constructor(private http: HttpClient, private spotifree: SpotifreeService) {
+    this.spotifree.getNewReleases()
+      .subscribe((data:any) => {
+        console.log(data.albums.items)
+        this.nuevasCanciones = data.albums.items
       }
     )
   }
+
+
 
   ngOnInit(): void {
   }

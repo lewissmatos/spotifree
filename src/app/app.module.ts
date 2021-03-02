@@ -9,6 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { ArtistaComponent } from './components/artista/artista.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import { SpotifreeService } from './sercives/spotifree.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [SpotifreeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
