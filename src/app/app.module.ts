@@ -11,6 +11,7 @@ import { ArtistaComponent } from './components/artista/artista.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { SpotifreeService } from './sercives/spotifree.service';
 import { MusicCardComponent } from './components/music-card/music-card.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MusicCardComponent } from './components/music-card/music-card.component
     SearchComponent,
     ArtistaComponent,
     NavbarComponent,
-    MusicCardComponent
+    MusicCardComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
