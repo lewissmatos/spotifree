@@ -15,8 +15,7 @@ export class HomeComponent implements OnInit {
   constructor(private http: HttpClient, private spotifree: SpotifreeService) {
     this.spotifree.getNewReleases()
       .subscribe((data:any) => {
-        console.log(data.albums.items)
-        this.nuevasCanciones = data.albums.items
+        this.nuevasCanciones = data
       }
     )
   }

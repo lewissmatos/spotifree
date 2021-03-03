@@ -1,1 +1,25 @@
-<p>search works!</p>
+<div class=" animated fadeIn fast">
+
+    <div class="row">
+        <div class="col">
+            <input type="text" #termino (keyup)="buscar(termino.value)" class="form-control" placeholder="Buscar Artista">
+        </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-4 g-4 m-5">
+        <div class="col" *ngFor="let artista of artists ">
+            <div class="card h-100">
+                <img [src]="artista.images | noImage" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title " style="margin: 8px;">{{artista.name}}</h5>
+                    <span *ngFor="let artista of artista.artists" class="badge bg-warning">{{artista.name}}</span>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">{{artista.release_date}}</small>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

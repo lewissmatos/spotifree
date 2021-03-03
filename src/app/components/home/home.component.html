@@ -1,7 +1,7 @@
 <div class="row row-cols-1 row-cols-md-4 g-4 animated fadeIn fast">
     <div class="col" *ngFor="let cancion of nuevasCanciones ">
         <div class="card h-100">
-            <img [src]="cancion.images[0].url" class="card-img-top" alt="...">
+            <img [src]="cancion.images | noImage" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title " style="margin: 8px;">{{cancion.name}}</h5>
                 <span *ngFor="let artista of cancion.artists" class="badge bg-warning">{{artista.name}}</span>
