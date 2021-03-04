@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SpotifreeService } from '../../sercives/spotifree.service';
 
 @Component({
@@ -12,11 +12,11 @@ export class SearchComponent implements OnInit {
   
   constructor(private spotifree: SpotifreeService) { }
   
+  @Input() items:any[]=[]
 
 
   buscar(termino : string){
-    console.log(termino)
-    this.spotifree.getArtist(termino)
+    this.spotifree.getArtists(termino)
       .subscribe((data:any) => {
         this.artists = data;
     })

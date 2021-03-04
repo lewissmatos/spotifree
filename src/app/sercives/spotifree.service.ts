@@ -16,7 +16,7 @@ export class SpotifreeService {
     const url: string = `https://api.spotify.com/v1/${ query }`
 
     const headers = new HttpHeaders({
-      'Authorization': 'Bearer BQC1uKfLykVSN4gvkn9VbvAWV4SVMoTbIepKZ3FDz2CjsZmFv7cQ0D-oNuZXgfy9RcWaJ0YH-guL_HX_mHk'
+      'Authorization': 'Bearer BQAA61vg0RaLZHNZJ3aPG5TMTOoqiqzSvujBIPSi7A0Jwa7u6DPq0SaK5cFMVbifxUXqVVinPKvxSaqzafE'
     })
     return this.http.get(url, { headers })
   }
@@ -25,7 +25,13 @@ export class SpotifreeService {
   return this.getQuery('browse/new-releases?limit=10').pipe(map((data: any) => data['albums'].items))            
   }
 
-  getArtist(termino: string) {    
+  getArtists(termino: string) {    
     return this.getQuery(`search?q=${termino}&type=artist&limit=10`).pipe(map((data: any) => data['artists'].items))
+  }
+  getArtist(id: string) {    
+    return this.getQuery(`artists/${id}`)
+  }
+  getTops(id: string) {    
+    return this.getQuery(`artists/${id}/top-tracks?country=us`).pipe(map((data: any) => data['tracks']))
   }
 }

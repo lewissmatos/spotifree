@@ -9,7 +9,7 @@ const routes: Routes = [
 
   {path: 'home', component: HomeComponent},
   {path: 'search', component: SearchComponent},
-  {path: 'artista', component: ArtistaComponent},
+  {path: 'artista/:id', component: ArtistaComponent},
   {path: 'prueba-estatica', component: MusicCardComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 

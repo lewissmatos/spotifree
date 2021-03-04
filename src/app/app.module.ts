@@ -13,6 +13,7 @@ import { SpotifreeService } from './sercives/spotifree.service';
 import { MusicCardComponent } from './components/music-card/music-card.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { NoImagePipe } from './pipes/no-image.pipe';
+import { ReleaseCardComponent } from './components/release-card/release-card.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,9 @@ import { NoImagePipe } from './pipes/no-image.pipe';
     NavbarComponent,
     MusicCardComponent,
     FooterComponent,
-    NoImagePipe
+    NoImagePipe,
+    ReleaseCardComponent
+    
   ],
   imports: [
     BrowserModule,

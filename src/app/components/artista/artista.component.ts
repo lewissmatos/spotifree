@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { SpotifreeService } from '../../sercives/spotifree.service';
 
 @Component({
   selector: 'app-artista',
@@ -7,7 +9,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArtistaComponent implements OnInit {
 
-  constructor() { }
+
+  artist:any = {}
+
+  tops:any[] = []
+
+  constructor( private router: ActivatedRoute, private spotifree: SpotifreeService) {
+    
+    this.router.params.subscribe(params => {
+      
+    this.getArtist(params['id'])
+    this.getTops(params['id'])
+    })
+     
+
+  
+  }
+
+
+  getArtist(id: string){
+    this.spotifree.getArtist(id)
+      .subscribe(data => {
+        this.artist = data
+      })
+  }
+
+  getTops(id: string) {
+    this.spotifree.getTops(id)
+      .subscribe(data => {
+        console.log(data);
+        this.tops = data
+      })
+  }
 
   ngOnInit(): void {
   }

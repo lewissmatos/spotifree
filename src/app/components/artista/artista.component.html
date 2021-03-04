@@ -1,1 +1,44 @@
-<p>artista works!</p>
+<div class="animated fadeIn fast mt-4">
+    <div class="row">
+        <div class="col-2 ">
+
+            <img [src]="artist.images | noImage" class="img-thumbnail img-circle" alt="">
+
+        </div>
+        <div class="col">
+            <h2>{{artist.name | uppercase}}</h2>
+            <p>
+                <a class="textoBlanco" [href]="artist.external_urls.spotify" target="_blank">
+                Ir al perfil del artista
+                </a>
+            </p>
+        </div>
+        <div class="col-4 text-right">
+            <button class="btn btn-outline-danger" routerLink="/search">Volver</button>
+        </div>
+    </div>
+
+
+    <div class="row mt-4">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Foto</th>
+                        <th>Album</th>
+                        <th>Cancion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let top of tops">
+                        <td>
+                            <img class="album-img-circle" [src]="top.album.images | noImage" alt="">
+                        </td>
+                        <td>{{top.album.name}}</td>
+                        <td>{{top.name}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
